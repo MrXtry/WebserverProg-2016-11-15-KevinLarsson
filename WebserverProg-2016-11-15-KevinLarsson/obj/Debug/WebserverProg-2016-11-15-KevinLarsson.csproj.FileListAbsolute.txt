@@ -1,0 +1,6 @@
+c:\users\kevin\documents\visual studio 2015\Projects\WebserverProg-2016-11-15-KevinLarsson\WebserverProg-2016-11-15-KevinLarsson\bin\Debug\WebserverProg-2016-11-15-KevinLarsson.exe.config
+c:\users\kevin\documents\visual studio 2015\Projects\WebserverProg-2016-11-15-KevinLarsson\WebserverProg-2016-11-15-KevinLarsson\bin\Debug\WebserverProg-2016-11-15-KevinLarsson.exe
+c:\users\kevin\documents\visual studio 2015\Projects\WebserverProg-2016-11-15-KevinLarsson\WebserverProg-2016-11-15-KevinLarsson\bin\Debug\WebserverProg-2016-11-15-KevinLarsson.pdb
+c:\users\kevin\documents\visual studio 2015\Projects\WebserverProg-2016-11-15-KevinLarsson\WebserverProg-2016-11-15-KevinLarsson\obj\Debug\WebserverProg-2016-11-15-KevinLarsson.csprojResolveAssemblyReference.cache
+c:\users\kevin\documents\visual studio 2015\Projects\WebserverProg-2016-11-15-KevinLarsson\WebserverProg-2016-11-15-KevinLarsson\obj\Debug\WebserverProg-2016-11-15-KevinLarsson.exe
+c:\users\kevin\documents\visual studio 2015\Projects\WebserverProg-2016-11-15-KevinLarsson\WebserverProg-2016-11-15-KevinLarsson\obj\Debug\WebserverProg-2016-11-15-KevinLarsson.pdb
