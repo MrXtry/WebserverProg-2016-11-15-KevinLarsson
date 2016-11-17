@@ -21,6 +21,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
         {
             for (;;)
             {
+                //change this foreach loop - Bug
                 foreach (var item in world)
                 {
                     if (item != null)
@@ -86,27 +87,39 @@ namespace WebserverProg_2016_11_15_KevinLarsson
             world[robot.XValue, robot.YValue] = worldPlace;
             worldPlace.RobotInRoom = robot;
             WriteAt(robot.XValue, robot.YValue, robot.Name);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
         }
 
         private static bool CheckPlace(Robot robot, int pos)
         {
             bool isTrue = true;
-            if((world[robot.XValue - 1, robot.YValue] == null) && (pos == 1))
+            if ((robot.XValue > 0) && (pos == 1))
             {
-                isTrue = false;
+                if ((world[robot.XValue - 1, robot.YValue] == null))
+                {
+                    isTrue = false;
+                }
             }
-            else if ((world[robot.XValue, robot.YValue + 1] == null) && (pos == 2))
+            else if ((robot.YValue > 0) && (pos == 2))
             {
-                isTrue = false;
+                if ((world[robot.XValue, robot.YValue - 1] == null))
+                {
+                    isTrue = false;
+                }
             }
-            else if ((world[robot.XValue + 1, robot.YValue] == null) && (pos == 3))
+            else if ((robot.XValue < 79) && (pos == 3))
             {
-                isTrue = false;
+                if ((world[robot.XValue + 1, robot.YValue] == null))
+                {
+                    isTrue = false;
+                }
             }
-            else if ((world[robot.XValue, robot.YValue + 1] == null) && (pos == 4))
+            else if ((robot.YValue < 24) && (pos == 4))
             {
-                isTrue = false;
+                if ((world[robot.XValue, robot.YValue + 1] == null))
+                {
+                    isTrue = false;
+                }
             }
 
             return isTrue;
@@ -146,7 +159,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
                     world[rndNum[0], rndNum[1]] = worldPlace;
                     worldPlace.RobotInRoom = new Robot(item, rndNum[0], rndNum[1]);
                     WriteAt(rndNum[0], rndNum[1], item);
-                    Console.WriteLine(item);
+                    //Console.WriteLine(item);
                 }
             });
             Task.WaitAll(finalTask);
@@ -172,7 +185,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
             Random rnd = new Random();
             int colorNum = rnd.Next(colorLength);
 
-            Console.ForegroundColor = colors[2];
+            Console.ForegroundColor = colors[4];
         }
         public static int[] GetRandomNumber()
         {
