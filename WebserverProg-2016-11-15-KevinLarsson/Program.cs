@@ -10,6 +10,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
     class Program
     {
         static World[,] world = new World[Console.WindowWidth, Console.WindowHeight];
+        static Robot[] robotArray = new Robot[22];
         public static void Main(string[] args)
         {
             CreateTasks();
@@ -20,13 +21,23 @@ namespace WebserverProg_2016_11_15_KevinLarsson
         private static void BeginTheLoop()
         {
             for (;;)
-            {
-                //change this foreach loop - Bug
+            { 
+                
+                var count = 0;
                 foreach (var item in world)
                 {
                     if (item != null)
                     {
-                        GetRandomCord(item.RobotInRoom);
+                        robotArray[count] = item.RobotInRoom;
+                        count += 1;
+                    }
+                }
+            
+                foreach (var item in robotArray)
+                {
+                    if (item != null)
+                    {
+                        GetRandomCord(item);
                     }
                 }
             }
@@ -87,7 +98,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
             world[robot.XValue, robot.YValue] = worldPlace;
             worldPlace.RobotInRoom = robot;
             WriteAt(robot.XValue, robot.YValue, robot.Name);
-            Thread.Sleep(500);
+            Thread.Sleep(100);
         }
 
         private static bool CheckPlace(Robot robot, int pos)
@@ -142,11 +153,30 @@ namespace WebserverProg_2016_11_15_KevinLarsson
         {
             Task<string[]> parent = Task.Run(() =>
             {
-                var results = new string[3];
+                var results = new string[22];
                 TaskFactory tf = new TaskFactory(TaskCreationOptions.AttachedToParent, TaskContinuationOptions.ExecuteSynchronously);
-                tf.StartNew(() => results[0] = "1");
-                tf.StartNew(() => results[1] = "2");
-                tf.StartNew(() => results[2] = "3");
+                tf.StartNew(() => results[0] = "@");
+                tf.StartNew(() => results[1] = "#");
+                tf.StartNew(() => results[2] = "£");
+                tf.StartNew(() => results[3] = "¤");
+                tf.StartNew(() => results[4] = "$");
+                tf.StartNew(() => results[5] = "%");
+                tf.StartNew(() => results[6] = "&");
+                tf.StartNew(() => results[7] = "/");
+                tf.StartNew(() => results[8] = "=");
+                tf.StartNew(() => results[9] = "&");
+                tf.StartNew(() => results[10] = "+");
+                tf.StartNew(() => results[11] = "-");
+                tf.StartNew(() => results[12] = "Q");
+                tf.StartNew(() => results[13] = "W");
+                tf.StartNew(() => results[14] = "E");
+                tf.StartNew(() => results[15] = "R");
+                tf.StartNew(() => results[16] = "T");
+                tf.StartNew(() => results[17] = "Y");
+                tf.StartNew(() => results[18] = "U");
+                tf.StartNew(() => results[19] = "I");
+                tf.StartNew(() => results[20] = "O");
+                tf.StartNew(() => results[21] = "P");
                 return results;
             });
             var finalTask = parent.ContinueWith(parentTask =>
@@ -159,7 +189,6 @@ namespace WebserverProg_2016_11_15_KevinLarsson
                     world[rndNum[0], rndNum[1]] = worldPlace;
                     worldPlace.RobotInRoom = new Robot(item, rndNum[0], rndNum[1]);
                     WriteAt(rndNum[0], rndNum[1], item);
-                    //Console.WriteLine(item);
                 }
             });
             Task.WaitAll(finalTask);
@@ -185,7 +214,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
             Random rnd = new Random();
             int colorNum = rnd.Next(colorLength);
 
-            Console.ForegroundColor = colors[4];
+            Console.ForegroundColor = colors[2];
         }
         public static int[] GetRandomNumber()
         {
