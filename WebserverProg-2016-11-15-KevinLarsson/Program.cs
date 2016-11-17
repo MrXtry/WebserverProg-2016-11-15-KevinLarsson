@@ -9,7 +9,9 @@ namespace WebserverProg_2016_11_15_KevinLarsson
 {
     class Program
     {
-        static World[,] world = new World[Console.WindowWidth, Console.WindowHeight];
+        static int x = Console.WindowWidth;
+        static int y = Console.WindowHeight;
+        static World[,] world = new World[x, y];
         static Robot[] robotArray = new Robot[22];
         public static void Main(string[] args)
         {
@@ -76,7 +78,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
                     if (isTrue != true)
                     {
                         ClearPlace(robot.XValue, robot.YValue);
-                        if (robot.XValue != (Console.WindowWidth - 1))
+                        if (robot.XValue != (x - 1))
                         {
                             robot.XValue += 1;
                         }
@@ -86,7 +88,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
                     if(isTrue != true)
                     {
                         ClearPlace(robot.XValue, robot.YValue);
-                        if (robot.YValue != (Console.WindowHeight - 1))
+                        if (robot.YValue != (y - 1))
                         {
                             robot.YValue += 1;
                         }
@@ -118,14 +120,14 @@ namespace WebserverProg_2016_11_15_KevinLarsson
                     isTrue = false;
                 }
             }
-            else if ((robot.XValue < 79) && (pos == 3))
+            else if ((robot.XValue < (x - 1)) && (pos == 3))
             {
                 if ((world[robot.XValue + 1, robot.YValue] == null))
                 {
                     isTrue = false;
                 }
             }
-            else if ((robot.YValue < 24) && (pos == 4))
+            else if ((robot.YValue < (y - 1)) && (pos == 4))
             {
                 if ((world[robot.XValue, robot.YValue + 1] == null))
                 {
