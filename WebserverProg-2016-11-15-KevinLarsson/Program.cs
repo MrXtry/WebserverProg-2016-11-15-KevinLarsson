@@ -47,6 +47,7 @@ namespace WebserverProg_2016_11_15_KevinLarsson
 
         private static void GetRandomCord(Robot robot)
         {
+            //TODO fix Lock here
             Random rnd = new Random();
             World worldPlace = new World();
             world[robot.XValue, robot.YValue] = null;
